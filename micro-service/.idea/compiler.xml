@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="micro-service-eureka-7001" />
+        <module name="micro-service-provider-emp-8001" />
+        <module name="micro-service-api" />
+        <module name="micro-service-consumer-emp-6000" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="micro-service-api" options="" />
+      <module name="micro-service-consumer-emp-6000" options="" />
+      <module name="micro-service-eureka-7001" options="" />
+      <module name="micro-service-provider-emp-8001" options="" />
+    </option>
+  </component>
+</project>

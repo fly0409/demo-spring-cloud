@@ -1,0 +1,46 @@
+server:
+  port: 8001
+
+spring:
+    application:
+      name: microservice-emp #很重要,對外的微服務名字
+    datasource:
+      type: com.zaxxer.hikari.HikariDataSource
+      url: jdbc:sqlserver://localhost:1433;database=CLOUD_DB01;encrypt=true;trustServerCertificate=true;
+      username: sa1
+      password: P@ssw0rd
+      hikari:
+        poolName: Hikari
+        auto-commit: false
+        data-source-properties:
+          cachePrepStmts: true
+          prepStmtCacheSize: 250
+          prepStmtCacheSqlLimit: 2048
+          useServerPrepStmts: true
+
+eureka:
+  client:
+      service-url:
+        defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: microservice-emp-8001 # 幫eureka instance registered block裡面, status那個欄位的別名
+    prefer-ip-address: true #超連結顯示的是IP位置
+
+#要顯示actuator訊息的設定
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+#要顯示的訊息,會產生json
+info:
+  app:
+    name: iisi-microservice
+  company:
+    name: www.iisi.com
+  build:
+    artifactId: $project.artifactId$
+    version: $project.version$

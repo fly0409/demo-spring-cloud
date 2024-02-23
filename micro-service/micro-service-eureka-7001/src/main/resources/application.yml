@@ -1,0 +1,20 @@
+server:
+  port: 7001
+
+eureka:
+  instance:
+    hostname: localhost #eureka server端的實際名稱
+  client:
+    register-with-eureka: false #不要在註冊中心註冊自己
+    fetch-registry: false # false表示自己就是註冊中心,職責為維護服務實體,而不需要檢索服務
+    service-url:
+      defaultZone: 'http://${eureka.instance.hostname}:${server.port}/eureka'
+
+#在自我保護模式中, Eureka server會保護服務註冊表中的訊息,不在註銷任何服務實例。
+#當server收到的心跳數重新回復到閥值以上，該eureka節點會自動退出自我保護模式。
+#他的設計哲學就是，寧可保留錯誤的服務註冊訊息，也不盲目註銷任何可能健康的服務實例
+
+ #在client端可以設定不要自我保護機制
+  #  eureka
+  #   server:
+  #     enable-self-preservation: false
